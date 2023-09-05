@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres_projetinho
+    image: postgres:13
+    environment:
+      POSTGRES_DB: northwind
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./sql/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
+    ports:
+      - 5432:5432
